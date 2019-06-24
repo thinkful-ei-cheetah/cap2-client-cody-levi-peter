@@ -46,6 +46,12 @@ export default class App extends Component {
         />
       )
     }
+    const loginPage = (props) => {
+        return (
+          <LoginRoute 
+            set={this.setSession}/>
+        )
+    }
     return (
       <div className='App'>
         {console.log(this.state)}
@@ -70,7 +76,7 @@ export default class App extends Component {
             />
             <PublicOnlyRoute
               path={'/login'}
-              component={LoginRoute}
+              component={loginPage}
             />
             <Route
               component={NotFoundRoute}
