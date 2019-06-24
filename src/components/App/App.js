@@ -8,10 +8,29 @@ import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import LearningRoute from '../../routes/LearningRoute/LearningRoute'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
+import APi from './API'
 import './App.css'
 
 export default class App extends Component {
   state = { hasError: false }
+
+  setSession = () => {
+    APi.getLang()
+      .then(res => {
+        if(!res.ok){
+          throw new Error('Something went wrong')
+        }
+        return res
+      })
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data)
+
+        this.setState({
+          sData: data,
+        })
+      })
+  }
 
   static getDerivedStateFromError(error) {
     console.error(error)
@@ -20,8 +39,16 @@ export default class App extends Component {
 
   render() {
     const { hasError } = this.state
+    const dashPage = (props) => {
+      return(
+        <DashboardRoute 
+          set={this.setSession}
+        />
+      )
+    }
     return (
       <div className='App'>
+        {console.log(this.state)}
         <Header />
         <main>
           {hasError && (
@@ -31,7 +58,7 @@ export default class App extends Component {
             <PrivateRoute
               exact
               path={'/'}
-              component={DashboardRoute}
+              component={dashPage}
             />
             <PrivateRoute
               path={'/learn'}
