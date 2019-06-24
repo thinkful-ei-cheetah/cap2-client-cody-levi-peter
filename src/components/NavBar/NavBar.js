@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import UserContext from '../../contexts/UserContext'
-import './Header.css'
+import './NavBar.css'
 
-class Header extends Component {
+class NavBar extends Component {
   static contextType = UserContext
 
   handleLogoutClick = () => {
@@ -41,7 +41,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <h1>
+        <h1 className='app-title'>
           <Link to='/'>
             Spaced repetition
           </Link>
@@ -54,4 +54,4 @@ class Header extends Component {
   }
 }
 
-export default Header
+export default NavBar
