@@ -13,15 +13,18 @@ class LoginRoute extends Component {
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/'
     history.push(destination)
+    this.props.set();
   }
 
   render() {
     return (
-      <section>
-        <h2>Login</h2>
-        <LoginForm
-          onLoginSuccess={this.handleLoginSuccess}
-        />
+      <section className='login-wrapper'>
+        <section className='login-section' >
+          <h2>Login</h2>
+          <LoginForm
+            onLoginSuccess={this.handleLoginSuccess}
+          />
+        </section>
       </section>
     );
   }

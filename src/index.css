@@ -20,8 +20,8 @@ body {
 
 :root {
   --font-size: calc(10px + 1vmin);
-  --Green:#B9F6CA;
-  --Darken:#00838F;
+  --green:#B9F6CA;
+  --darken:#00838F;
   --greyish:#c5cae9;
   --purple:#531CB3;
   --primary:#5EFC8D;
