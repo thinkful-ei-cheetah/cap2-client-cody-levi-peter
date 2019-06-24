@@ -43,6 +43,7 @@ export default class App extends Component {
       return(
         <DashboardRoute 
           set={this.setSession}
+          sData={this.state.sData}
         />
       )
     }
