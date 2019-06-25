@@ -13,11 +13,12 @@ class NavBar extends Component {
 
   renderLogoutLink() {
     return (
-      <div>
-        <span>
+      <div className='dashboard-nav'>
+        <span className='User-name'>
+          <p>/</p>
           {this.context.user.name}
         </span>
-        <nav>
+        <nav className='LandingPage-nav '>
           <Link
             onClick={this.handleLogoutClick}
             to='/login'>
@@ -30,7 +31,7 @@ class NavBar extends Component {
 
   renderLoginLink() {
     return (
-      <nav>
+      <nav className='LandingPage-nav'>
         <Link to='/login'>Login</Link>
         {' '}
         <Link to='/register'>Sign up</Link>
@@ -43,7 +44,7 @@ class NavBar extends Component {
       <header>
         <h1 className='app-title'>
           <Link to='/'>
-            Spaced repetition
+            Jouzu
           </Link>
         </h1>
         {TokenService.hasAuthToken()

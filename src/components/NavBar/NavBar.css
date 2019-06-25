@@ -1,3 +1,5 @@
+@import url('https://kit.fontawesome.com/b4394c0cd1.js');
+/* Login page */
 header {
     display: flex;
     position: sticky;
@@ -7,7 +9,7 @@ header {
     top: 0;
 }
 .app-title{
-  margin: auto 30px;
+  margin: auto 0 auto 30px;
 }
 .app-title a{
   text-decoration: none;
@@ -17,13 +19,13 @@ header {
   color: var(--Green);
   text-decoration: underline;
 }
-nav {
+.LandingPage-nav {
     position: fixed;
     right: 35px;
     font-size: 22px;
     top: 18px;;
 }
-nav a{
+.LandingPage-nav a{
     margin-left: 25px;
     text-decoration: none;
     color: var(--primary);
@@ -32,4 +34,19 @@ nav a{
 nav a:hover{
   color: var(--Green);
   text-decoration: underline;
+}
+/*  dashboard nav  */
+.dashboard-nav{
+  margin:auto 0;
+}
+.User-name{
+    display: flex;
+    flex-direction: row;
+    font-weight: 300;
+    font-size: 37px;
+    color: var(--primary);
+}
+.User-name p{
+  margin: 0 10px;
+  font-weight: 300;
 }
