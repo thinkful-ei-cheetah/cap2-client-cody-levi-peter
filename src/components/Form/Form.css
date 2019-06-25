@@ -1,0 +1,9 @@
+.Label{
+    margin-right: 15px;
+}
+
+.Input{
+  padding: 4px;
+  width: 100%;
+  border-radius: 5px;
+}
