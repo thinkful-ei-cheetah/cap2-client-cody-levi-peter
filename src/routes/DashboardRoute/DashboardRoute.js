@@ -29,15 +29,17 @@ class DashboardRoute extends Component {
           <h2 className='Language-title'>
             Learning {language}
           </h2>
+          <div className='title-wrapper'>
             <p>{`Total correct answers: ${score}`}</p>
             <a href="/learn">
               Start practicing
             </a>
+          </div>
         </div>
-            <h3>
-              Words to practice
-            </h3>
         <section className='wordList-section'>
+          <h3>
+            Words to practice
+          </h3>
           <ul className='wordList'>
             {words}
           </ul>

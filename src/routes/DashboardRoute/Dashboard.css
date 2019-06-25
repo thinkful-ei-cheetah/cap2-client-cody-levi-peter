@@ -5,11 +5,10 @@
 
 }
 .dashboard-header{
-    margin: 0 125px 25px 146px;
-    height: 250px;
-    padding: 25px;
-    width: 80%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    height: 240px;
+    padding: 25px 150px 25px 180px;
+    width: 100%;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, .18);
 }
 .Language-title{
   font-size: 43px;
@@ -26,8 +25,19 @@
   padding: 8px 44px;
 
 }
-
+.title-wrapper{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding-right:25px;
+}
 .dashboard-header a:hover{
   text-decoration: underline;
   color:var(--seconday);
+}
+.wordList-section{
+  margin: 25px 150px 25px 180px
+}
+.wordList-section h3 {
+  font-size:36px;
 }
