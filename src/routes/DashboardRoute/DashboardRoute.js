@@ -45,7 +45,6 @@ class DashboardRoute extends Component {
                 </li>
               )
             })}
-            {/* {words} */}
           </ul>
         </section>
       </section>
