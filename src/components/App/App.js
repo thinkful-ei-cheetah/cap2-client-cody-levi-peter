@@ -13,7 +13,27 @@ import './App.css'
 import API from './API';
 
 export default class App extends Component {
-  state = { hasError: false }
+  state = { 
+    hasError: false ,
+    guess: '',
+  }
+
+  handleSubmit = (e) => {
+
+    this.setState({
+      guess: e
+    })
+    API.postAns({guess: e})
+    // this.setState({
+    //   guess: e.target.value
+    // })
+  }
+
+  setGuess = (e) => {
+    this.setState({
+      guess: e
+    })
+  }
 
   setSession = () => {
     APi.getLang()
@@ -76,6 +96,9 @@ export default class App extends Component {
         <LearningRoute 
           head={this.state.lHead}
           gameStart={this.getHead}
+          setGuess={this.setGuess}
+          submit={this.handleSubmit}
+          guess={this.state.guess}
         />
       )
     }

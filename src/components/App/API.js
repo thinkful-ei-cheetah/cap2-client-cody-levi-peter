@@ -19,6 +19,15 @@ const API = {
             method: 'GET',
             headers: { 'authorization': `Bearer ${TokenService.getAuthToken()}` }
         })
+    },
+
+    postAns(ans) {
+        return fetch(`${config.API_ENDPOINT}/language/guess`, {
+            method: "POST",
+            headers: { 'authorization': `Bearer ${TokenService.getAuthToken()}` },
+            body: JSON.stringify(ans),
+        })
+
     }
 }
 

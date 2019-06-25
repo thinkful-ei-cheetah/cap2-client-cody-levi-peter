@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class LearningRoute extends Component {
   componentDidMount(){
-    (this.props.head === undefined) ? this.props.gameStart() : console.log('false');
+    (this.props.head === undefined) ? this.props.gameStart() : console.log('game started');
     console.log(this.props.head)
   }
   render() {
@@ -11,7 +11,17 @@ class LearningRoute extends Component {
     let score = (this.props.head !== undefined) ? this.props.head.totalScore : false;
     let rAmount = (this.props.head !== undefined) ? this.props.head.wordCorrectCount : false;
     let wAmount = (this.props.head !== undefined) ? this.props.head.wordIncorrectCount : false;
-    
+    let guess = '';
+    let handleChange = (e) => {
+          guess = e.target.value
+    } 
+    let handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(guess)
+      this.props.submit(guess);
+    }
+
+    console.log(this.props.guess)
     return (
       <section>
         implement and style me
@@ -28,10 +38,19 @@ class LearningRoute extends Component {
       </p>
 
       <div>
-        <form>
+        <form 
+        onSubmit={handleSubmit}
+        >
         <label for={'learn-guess-input'}>
         What's the translation for this word?
-          <input required id="learn-guess-input" type="text" />
+          <input 
+          required 
+          id="learn-guess-input" 
+          type="text" 
+          name="guess-input"
+          value={this.guess} 
+          onChange={handleChange}
+          />
         </label>
         <button type="submit">
         Submit your answer
@@ -53,3 +72,6 @@ class LearningRoute extends Component {
 }
 
 export default LearningRoute
+
+
+// onSubmit={(e) => this.props.submit(e , value)}
