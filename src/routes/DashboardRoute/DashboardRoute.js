@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { relativeTimeRounding } from 'moment';
+import './Dashboard.css'
 
 class DashboardRoute extends Component {
   componentDidMount() {
@@ -12,34 +13,35 @@ class DashboardRoute extends Component {
     let score = (this.props.sData !== undefined) ? this.props.sData.language.total_score : false;
     let words = (this.props.sData !== undefined) ? this.props.sData.words.map(word => {
       return (
-        <li>
-          <h4>
+        <li className='word-list-item'>
+          <h4 class='word'>
             {word.original}
           </h4>
-          {`correct answer count: ${word.correct_count}`}
-          {`incorrect answer count: ${word.incorrect_count}`}
+          <p>{`correct answer count: ${word.correct_count}`}</p>
+          <p>{`incorrect answer count: ${word.incorrect_count}`}</p>
         </li>
       )
     }) : false;
     // let session = {...this.props.sData}
     return (
-      <section>
-        {console.log(language)}
-        implement and style me
-        <h2>
-          title mane {language}
-        </h2>
-        {`Total correct answers: ${score}`}
-        <div>
+      <section className='dashboard-section'>
+        <div className='dashboard-header'>
+          <h2 className='Language-title'>
+            Learning {language}
+          </h2>
+            <p>{`Total correct answers: ${score}`}</p>
+            <a href="/learn">
+              Start practicing
+            </a>
         </div>
-        <a href="/learn">
-          Start practicing
-        </a>
-        <h3>
-          {`Words to practice`}
-        </h3>
-
-        {words}
+            <h3>
+              Words to practice
+            </h3>
+        <section className='wordList-section'>
+          <ul className='wordList'>
+            {words}
+          </ul>
+        </section>
       </section>
     );
   }
