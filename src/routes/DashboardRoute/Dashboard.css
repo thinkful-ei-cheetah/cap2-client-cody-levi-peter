@@ -40,4 +40,17 @@
 }
 .wordList-section h3 {
   font-size:36px;
+  box-shadow: 0 2px;
+  padding: 0px 0 30px;
+}
+.wordList{
+    padding: 30px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .8);
+    line-height: 2;
+}
+.word-list-item{
+  list-style: none;
+  padding:30px;
+  margin:34px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .18);
 }

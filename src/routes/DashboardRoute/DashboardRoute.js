@@ -7,22 +7,15 @@ class DashboardRoute extends Component {
     (this.props.sData === undefined) ? this.props.set() : console.log('false');
     console.log(this.props)
   }
-
   render() {
     let language = (this.props.sData !== undefined) ? this.props.sData.language.name : false;
     let score = (this.props.sData !== undefined) ? this.props.sData.language.total_score : false;
+    let wordobj = []
     let words = (this.props.sData !== undefined) ? this.props.sData.words.map(word => {
-      return (
-        <li className='word-list-item'>
-          <h4 class='word'>
-            {word.original}
-          </h4>
-          <p>{`correct answer count: ${word.correct_count}`}</p>
-          <p>{`incorrect answer count: ${word.incorrect_count}`}</p>
-        </li>
-      )
+      wordobj.push(word);
+      return wordobj
     }) : false;
-    // let session = {...this.props.sData}
+    let condition = wordobj.slice(0, 5)
     return (
       <section className='dashboard-section'>
         <div className='dashboard-header'>
@@ -41,7 +34,18 @@ class DashboardRoute extends Component {
             Words to practice
           </h3>
           <ul className='wordList'>
-            {words}
+            {condition.map(words => {
+              return (
+                <li className='word-list-item'>
+                  <h4 class='word'>
+                    {words.original}
+                  </h4>
+                  <p>{`correct answer count: ${words.correct_count}`}</p>
+                  <p>{`incorrect answer count: ${words.incorrect_count}`}</p>
+                </li>
+              )
+            })}
+            {/* {words} */}
           </ul>
         </section>
       </section>
