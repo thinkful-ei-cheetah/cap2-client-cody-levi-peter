@@ -24,6 +24,18 @@ class LearningRoute extends Component {
       <p>
         {`Your total score is: ${score}`}
       </p>
+
+      <div>
+        <form>
+        <label for={'learn-guess-input'}>
+        What's the translation for this word?
+          <input required id="learn-guess-input" type="text" />
+        </label>
+        <button type="submit">
+        Submit your answer
+        </button>
+        </form>
+      </div>
       </section>
     );
   }
