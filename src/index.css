@@ -1,17 +1,31 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet');
 
 * {
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
+  height:100%;
   margin: 0;
   padding: 0;
-  font-family: "Ubuntu", sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+#root{
+  height: 1000px;
+}
+
 
 :root {
   --font-size: calc(10px + 1vmin);
+  --green:#B9F6CA;
+  --darken:#00838F;
+  --greyish:#c5cae9;
+  --purple:#531CB3;
+  --primary:#5EFC8D;
+  --secondry:#020202;
+  --range:#EE4266;
+  
 }
