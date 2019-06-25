@@ -9,6 +9,8 @@ class LearningRoute extends Component {
 
     let qWord = (this.props.head !== undefined) ? this.props.head.nextWord : false;
     let score = (this.props.head !== undefined) ? this.props.head.totalScore : false;
+    let rAmount = (this.props.head !== undefined) ? this.props.head.wordCorrectCount : false;
+    let wAmount = (this.props.head !== undefined) ? this.props.head.wordIncorrectCount : false;
     
     return (
       <section>
@@ -35,6 +37,15 @@ class LearningRoute extends Component {
         Submit your answer
         </button>
         </form>
+      </div>
+
+      <div>
+        <div>
+        You have answered this word correctly {rAmount} times.
+        </div>
+        <div>
+        You have answered this word incorrectly {wAmount} times.
+        </div>
       </div>
       </section>
     );
