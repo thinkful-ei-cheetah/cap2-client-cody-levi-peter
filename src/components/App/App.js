@@ -10,6 +10,7 @@ import LearningRoute from '../../routes/LearningRoute/LearningRoute'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import APi from './API'
 import './App.css'
+import API from './API';
 
 export default class App extends Component {
   state = { hasError: false }
@@ -32,6 +33,22 @@ export default class App extends Component {
       })
   }
 
+  getHead = () => {
+    API.getLangHead()
+      .then(res => {
+        if(!res.ok){
+          throw new Error('something went wrong')
+        }
+      return res
+      })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          lHead:data,
+        })
+      })
+  }
+
   static getDerivedStateFromError(error) {
     console.error(error)
     return { hasError: true }
@@ -44,6 +61,7 @@ export default class App extends Component {
         <DashboardRoute 
           set={this.setSession}
           sData={this.state.sData}
+          gameStart={this.getHead}
         />
       )
     }
@@ -53,6 +71,15 @@ export default class App extends Component {
             set={this.setSession}/>
         )
     }
+    const learnPage = (props) => {
+      return (
+        <LearningRoute 
+          head={this.state.lHead}
+          gameStart={this.getHead}
+        />
+      )
+    }
+
     return (
       <div className='App'>
         <NavBar />
@@ -67,8 +94,9 @@ export default class App extends Component {
               component={dashPage}
             />
             <PrivateRoute
+              exact
               path={'/learn'}
-              component={LearningRoute}
+              component={learnPage}
             />
             <PublicOnlyRoute
               path={'/register'}

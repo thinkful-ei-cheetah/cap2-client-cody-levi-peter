@@ -12,6 +12,13 @@ const API = {
             //         ? res.json().then(e => Promise.reject(e))
             //         : res.json()
             // )
+    },
+    
+    getLangHead() {
+        return fetch(`${config.API_ENDPOINT}/language/head`, {
+            method: 'GET',
+            headers: { 'authorization': `Bearer ${TokenService.getAuthToken()}` }
+        })
     }
 }
 

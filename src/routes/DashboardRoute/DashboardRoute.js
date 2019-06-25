@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { relativeTimeRounding } from 'moment';
+import { timingSafeEqual } from 'crypto';
+import { NavLink, } from 'react-router-dom';
 
 class DashboardRoute extends Component {
   componentDidMount() {
@@ -32,9 +34,13 @@ class DashboardRoute extends Component {
         {`Total correct answers: ${score}`}
         <div>
         </div>
-        <a href="/learn">
+
+        <NavLink 
+        to="/learn" 
+        onClick={this.props.gameStart}
+        >
           Start practicing
-        </a>
+        </NavLink>
         <h3>
           {`Words to practice`}
         </h3>
