@@ -20,13 +20,22 @@ export default class App extends Component {
 
   handleSubmit = (e) => {
 
-    this.setState({
-      guess: e
-    })
     API.postAns({guess: e})
-    // this.setState({
-    //   guess: e.target.value
-    // })
+    .then(res => {
+      // if(!res.ok){
+      //   throw new Error('Something went wrong')
+      // }
+      return res
+    })
+    .then(res => res.json())
+    .then(data => {
+
+    this.setState({
+      guess: e,
+      response: data
+    })
+
+    })
   }
 
   setGuess = (e) => {
@@ -99,6 +108,7 @@ export default class App extends Component {
           setGuess={this.setGuess}
           submit={this.handleSubmit}
           guess={this.state.guess}
+          response={this.state.response}
         />
       )
     }
