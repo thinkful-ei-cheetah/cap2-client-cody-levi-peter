@@ -23,13 +23,14 @@ const API = {
 
     postAns(ans) {
         return fetch(`${config.API_ENDPOINT}/language/guess`, {
-            method: "POST",
-            headers: { 'authorization': `Bearer ${TokenService.getAuthToken()}` },
-            body: JSON.stringify(ans),
+            method: 'POST',
+            headers: { 
+                'authorization': `Bearer ${TokenService.getAuthToken()}` ,
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({"guess" : ans}),
         })
-
     }
 }
-
 
 export default API

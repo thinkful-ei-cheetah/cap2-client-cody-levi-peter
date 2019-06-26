@@ -164,7 +164,7 @@ class LearningRoute extends Component {
         You have answered this word incorrectly {wAmount} times.
         </div>
       </div> */}
-        {learning}
+      {learning}
       {test}
       </section>
       

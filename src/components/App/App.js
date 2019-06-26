@@ -19,8 +19,8 @@ export default class App extends Component {
   }
 
   handleSubmit = (e) => {
-
-    API.postAns({guess: e})
+    console.log(e)
+    API.postAns(e)
     .then(res => {
       // if(!res.ok){
       //   throw new Error('Something went wrong')
