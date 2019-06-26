@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { relativeTimeRounding } from 'moment';
-import './Dashboard.css'
+import { timingSafeEqual } from 'crypto';
+import { NavLink, } from 'react-router-dom';
 
 class DashboardRoute extends Component {
   componentDidMount() {
@@ -29,24 +30,17 @@ class DashboardRoute extends Component {
             </a>
           </div>
         </div>
-        <section className='wordList-section'>
-          <h3>
-            Words to practice
-          </h3>
-          <ul className='wordList'>
-            {condition.map(words => {
-              return (
-                <li className='word-list-item'>
-                  <h4 class='word'>
-                    {words.original}
-                  </h4>
-                  <p>{`correct answer count: ${words.correct_count}`}</p>
-                  <p>{`incorrect answer count: ${words.incorrect_count}`}</p>
-                </li>
-              )
-            })}
-          </ul>
-        </section>
+        <NavLink 
+        to="/learn" 
+        onClick={this.props.gameStart}
+        >
+          Start practicing
+        </NavLink>
+        <h3>
+          {`Words to practice`}
+        </h3>
+
+        {words}
       </section>
     );
   }
