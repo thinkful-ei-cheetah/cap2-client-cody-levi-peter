@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { relativeTimeRounding } from 'moment';
 import './Dashboard.css'
 import gravatar from 'react-gravatar'
+import { timingSafeEqual } from 'crypto';
+import { NavLink, } from 'react-router-dom';
+
 
 class DashboardRoute extends Component {
 
@@ -62,21 +65,32 @@ class DashboardRoute extends Component {
             </a>
           </div>
         </div>
-        <section className='wordList-section'>
-          <h3>
-            Words to practice
-          </h3>
-          <ul className='wordList' >
-            {this.renderWordList(this.state.wordList)}
-            <button className="Button" onClick={this.showMore()}>
-              {this.state.expanded ? (
-                <span>Show less</span>
-              ) : (
-                  <span>Show more</span>
-                )}
-            </button>
-          </ul>
-        </section>
+//         <section className='wordList-section'>
+//           <h3>
+//             Words to practice
+//           </h3>
+//           <ul className='wordList' >
+//             {this.renderWordList(this.state.wordList)}
+//             <button className="Button" onClick={this.showMore()}>
+//               {this.state.expanded ? (
+//                 <span>Show less</span>
+//               ) : (
+//                   <span>Show more</span>
+//                 )}
+//             </button>
+//           </ul>
+//         </section>
+        <NavLink 
+        to="/learn" 
+        onClick={this.props.gameStart}
+        >
+          Start practicing
+        </NavLink>
+        <h3>
+          {`Words to practice`}
+        </h3>
+
+        {words}
       </section>
     );
   }
