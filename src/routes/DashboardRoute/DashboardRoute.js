@@ -1,21 +1,55 @@
 import React, { Component } from 'react'
 import { relativeTimeRounding } from 'moment';
 import './Dashboard.css'
+import gravatar from 'react-gravatar'
 
 class DashboardRoute extends Component {
+
+  state = {
+    wordList : [],
+    itemsToShow: 5,
+    expanded: false,
+  }
   componentDidMount() {
     (this.props.sData === undefined) ? this.props.set() : console.log('false');
     console.log(this.props)
   }
+
+  avatar(email) {
+    return gravatar.url(email, { s: '100', r: 'x', d: 'retro', protocol: 'https' }, true);
+  }
+
+  renderWordList(arr){
+    return arr.slice(0,this.state.itemsToShow).map(words => {
+      return (
+        <li className='word-list-item'>
+          <h4 class='word'>
+            {words.original}
+          </h4>
+          <p>{`correct answer count: ${words.correct_count}`}</p>
+          <p>{`incorrect answer count: ${words.incorrect_count}`}</p>
+        </li>
+      )
+    })
+  }
+  showMore(){
+      this.state.itemsToShow === 5 ? (
+        this.setState({ itemsToShow: this.props.sData.words.length, expanded: true })
+      ) : (
+          this.setState({ itemsToShow: 5, expanded: false })
+        )
+  }
+
   render() {
     let language = (this.props.sData !== undefined) ? this.props.sData.language.name : false;
     let score = (this.props.sData !== undefined) ? this.props.sData.language.total_score : false;
-    let wordobj = []
     let words = (this.props.sData !== undefined) ? this.props.sData.words.map(word => {
-      wordobj.push(word);
-      return wordobj
+     return  this.setState({
+        wordList: word
+      })
     }) : false;
-    let condition = wordobj.slice(0, 5)
+    console.log(this.state.wordList);
+    
     return (
       <section className='dashboard-section'>
         <div className='dashboard-header'>
@@ -34,17 +68,14 @@ class DashboardRoute extends Component {
             Words to practice
           </h3>
           <ul className='wordList'>
-            {condition.map(words => {
-              return (
-                <li className='word-list-item'>
-                  <h4 class='word'>
-                    {words.original}
-                  </h4>
-                  <p>{`correct answer count: ${words.correct_count}`}</p>
-                  <p>{`incorrect answer count: ${words.incorrect_count}`}</p>
-                </li>
-              )
-            })}
+            {this.renderWordList(this.state.wordList)}
+            <button className="btn btn-primary" onClick={this.showMore}>
+              {this.state.expanded ? (
+                <span>Show less</span>
+              ) : (
+                  <span>Show more</span>
+                )}
+            </button>
           </ul>
         </section>
       </section>
