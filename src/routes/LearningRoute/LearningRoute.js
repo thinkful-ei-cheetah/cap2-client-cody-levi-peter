@@ -86,7 +86,7 @@ class LearningRoute extends Component {
         <p className="DisplayFeedback">
           {`The correct translation for ${qWord} was ${this.props.response.answer} and you chose ${this.props.guess}!`}
         </p>
-        <button>
+        <button onClick={this.props.next}>
             Try another word!
         </button>
       </> : <>
@@ -104,7 +104,7 @@ class LearningRoute extends Component {
             {`The correct translation for ${qWord} was ${this.props.response.answer} and you chose ${this.props.guess}!`}
           </p>
         </div>
-        <button>
+        <button onClick={this.props.next}>
             Try another word!
         </button>
       </>

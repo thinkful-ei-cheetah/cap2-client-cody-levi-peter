@@ -18,6 +18,14 @@ export default class App extends Component {
     guess: '',
   }
 
+  handleNext = (e) => {
+    this.getHead()
+    this.setState({
+      response: undefined,
+    })
+
+  }
+
   handleSubmit = (e) => {
     console.log(e)
     API.postAns(e)
@@ -109,6 +117,7 @@ export default class App extends Component {
           submit={this.handleSubmit}
           guess={this.state.guess}
           response={this.state.response}
+          next={this.handleNext}
         />
       )
     }
