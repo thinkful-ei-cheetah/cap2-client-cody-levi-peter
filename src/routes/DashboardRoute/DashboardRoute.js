@@ -20,10 +20,10 @@ class DashboardRoute extends Component {
   }
 
   renderWordList(arr){
-    return arr.slice(0,this.state.itemsToShow).map(words => {
+    return arr.slice(0,this.state.itemsToShow).map((words , key) => {
       return (
-        <li className='word-list-item'>
-          <h4 class='word'>
+        <li key={key} className='word-list-item'>
+          <h4 className='word'>
             {words.original}
           </h4>
           <p>{`correct answer count: ${words.correct_count}`}</p>
@@ -32,9 +32,9 @@ class DashboardRoute extends Component {
       )
     })
   }
-  showMore(){
+  showMore() {
       this.state.itemsToShow === 5 ? (
-        this.setState({ itemsToShow: this.props.sData.words.length, expanded: true })
+        this.setState({ itemsToShow: this.state.wordList.length, expanded: true })
       ) : (
           this.setState({ itemsToShow: 5, expanded: false })
         )
@@ -43,12 +43,11 @@ class DashboardRoute extends Component {
   render() {
     let language = (this.props.sData !== undefined) ? this.props.sData.language.name : false;
     let score = (this.props.sData !== undefined) ? this.props.sData.language.total_score : false;
-    let words = (this.props.sData !== undefined) ? this.props.sData.words.map(word => {
-     return  this.setState({
-        wordList: word
-      })
-    }) : false;
+    // let words = (this.props.sData !== undefined) ? this.props.sData.words.map(word => {
+    //     this.state.wordList.push(word)
+    //  return  this.state.wordList }): false;
     console.log(this.state.wordList);
+    console.log(this.state.itemsToShow)
     
     return (
       <section className='dashboard-section'>
@@ -67,9 +66,9 @@ class DashboardRoute extends Component {
           <h3>
             Words to practice
           </h3>
-          <ul className='wordList'>
+          <ul className='wordList' >
             {this.renderWordList(this.state.wordList)}
-            <button className="btn btn-primary" onClick={this.showMore}>
+            <button className="Button" onClick={this.showMore()}>
               {this.state.expanded ? (
                 <span>Show less</span>
               ) : (
