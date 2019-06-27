@@ -12,8 +12,25 @@ const API = {
             //         ? res.json().then(e => Promise.reject(e))
             //         : res.json()
             // )
+    },
+    
+    getLangHead() {
+        return fetch(`${config.API_ENDPOINT}/language/head`, {
+            method: 'GET',
+            headers: { 'authorization': `Bearer ${TokenService.getAuthToken()}` }
+        })
+    },
+
+    postAns(ans) {
+        return fetch(`${config.API_ENDPOINT}/language/guess`, {
+            method: 'POST',
+            headers: { 
+                'authorization': `Bearer ${TokenService.getAuthToken()}` ,
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({"guess" : ans}),
+        })
     }
 }
-
 
 export default API
