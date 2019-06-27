@@ -45,12 +45,17 @@
 }
 .wordList{
     padding: 30px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, .8);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .6);
     line-height: 2;
+    overflow-y: scroll;
+    height: 100%;
 }
 .word-list-item{
   list-style: none;
   padding:30px;
   margin:34px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, .18);
+}
+.word-col{
+  height: 315vh;
 }

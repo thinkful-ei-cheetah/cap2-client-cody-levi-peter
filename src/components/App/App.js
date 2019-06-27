@@ -12,7 +12,12 @@ import APi from './API'
 import './App.css'
 
 export default class App extends Component {
-  state = { hasError: false }
+  state = { 
+    hasError: false,
+    wordList:[],
+    itemsToShow: 5,
+    expanded: false
+  }
 
   setSession = () => {
     APi.getLang()
@@ -31,12 +36,11 @@ export default class App extends Component {
         })
       })
   }
-
+ 
   static getDerivedStateFromError(error) {
     console.error(error)
     return { hasError: true }
   }
-
   render() {
     const { hasError } = this.state
     const dashPage = (props) => {
@@ -53,6 +57,8 @@ export default class App extends Component {
             set={this.setSession}/>
         )
     }
+
+    
     return (
       <div className='App'>
         <NavBar />
