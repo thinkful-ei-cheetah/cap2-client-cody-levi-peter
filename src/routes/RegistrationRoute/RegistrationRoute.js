@@ -15,8 +15,8 @@ class RegistrationRoute extends Component {
 
   render() {
     return (
-      <section className='login-wrapper'>
-        <section className='login-section'>
+      <section className='registrationForm-wrapper'>
+        <section className='registration-section'>
           <p>
             Practice learning a language with the spaced reptition revision technique.
         </p>

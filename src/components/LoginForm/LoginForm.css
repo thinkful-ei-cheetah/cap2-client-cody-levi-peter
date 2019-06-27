@@ -54,16 +54,18 @@
   .Login-button:hover {
   opacity: 0.9;
   color:var(--primary);
-}
+    }
 
    #login-username-input, #login-password-input {
       width: 100%;
       padding: 12px 20px;
+      font-size: 16px;
       margin: 8px 0;
       display: inline-block;
       box-sizing: border-box;
       border-radius: 5px;
-}
+    }
+
     @media screen and (max-width: 500px) {
       .login-wrapper{
         padding: 0;
@@ -72,7 +74,7 @@
         width:90%;
         margin:55px 15px;
       }
-}
+    }
  @media screen and (max-width: 800px) {
       .login-wrapper{
         padding: 0;
@@ -82,4 +84,4 @@
           margin: 55px 15px;
           padding: 10px;
       }
-}
+    }
