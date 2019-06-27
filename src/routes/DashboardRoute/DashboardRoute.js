@@ -1,51 +1,63 @@
 import React, { Component } from 'react'
 import { relativeTimeRounding } from 'moment';
-import { timingSafeEqual } from 'crypto';
-import { NavLink, } from 'react-router-dom';
+import './Dashboard.css'
 
 class DashboardRoute extends Component {
+
+
   componentDidMount() {
     (this.props.sData === undefined) ? this.props.set() : console.log('false');
     console.log(this.props)
   }
 
-  render() {
-    let language = (this.props.sData !== undefined) ? this.props.sData.language.name : false;
-    let score = (this.props.sData !== undefined) ? this.props.sData.language.total_score : false;
-    let words = (this.props.sData !== undefined) ? this.props.sData.words.map(word => {
+
+  language() {
+    return (this.props.sData !== undefined) ? this.props.sData.language.name : false;
+  }
+
+  score() {
+    return (this.props.sData !== undefined) ? this.props.sData.language.total_score : false;
+  }
+
+  words() {
+    return (this.props.sData !== undefined) ? this.props.sData.words.map((word, key) => {
       return (
-        <li>
-          <h4>
+        <li key={key} className='word-list-item'>
+          <h4 className='word'>
             {word.original}
           </h4>
-          {`correct answer count: ${word.correct_count}`}
-          {`incorrect answer count: ${word.incorrect_count}`}
+          <div className='count-container'>
+            <p>{`Correct answer count: ${word.correct_count}`}</p>
+            <p>{`Incorrect answer count: ${word.incorrect_count}`}</p>
+          </div>
         </li>
       )
     }) : false;
-    // let session = {...this.props.sData}
+  }
+  render() {
     return (
-      <section>
-        {console.log(language)}
-        implement and style me
-        <h2>
-          title mane {language}
-        </h2>
-        {`Total correct answers: ${score}`}
-        <div>
+      <section className='dashboard-section'>
+        <div className='dashboard-header'>
+          <h2 className='Language-title'>
+            Learning {this.language()}
+          </h2>
+          <div className='title-wrapper'>
+            <p>{`Total correct answers: ${this.score()}`}</p>
+            <a href="/learn">
+              Start practicing
+            </a>
+          </div>
         </div>
-
-        <NavLink 
-        to="/learn" 
-        onClick={this.props.gameStart}
-        >
-          Start practicing
-        </NavLink>
-        <h3>
-          {`Words to practice`}
-        </h3>
-
-        {words}
+        <section className='wordList-section'>
+          <h3>
+            Words to practice
+          </h3>
+          <div className='word-col'>
+            <ul className='wordList' onClick={this.props.showMore}>
+              {this.words()}
+            </ul>
+          </div>
+        </section>
       </section>
     );
   }

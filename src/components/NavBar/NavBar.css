@@ -33,3 +33,27 @@ nav a:hover{
   color: var(--Green);
   text-decoration: underline;
 }
+/*  dashboard nav  */
+.dashboard-nav{
+  margin:auto 0;
+}
+.User-name{
+    display: flex;
+    flex-direction: row;
+    font-weight: 300;
+    font-size: 37px;
+    color: var(--primary);
+}
+.User-name p{
+  margin: 0 10px;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 750px) {
+  .LandingPage-nav{
+    right: 15px;
+  }
+  .LandingPage-nav a{
+    margin-left:10px
+  }
+}

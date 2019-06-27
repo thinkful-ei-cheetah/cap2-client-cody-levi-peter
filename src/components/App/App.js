@@ -90,7 +90,6 @@ export default class App extends Component {
     console.error(error)
     return { hasError: true }
   }
-
   render() {
     const { hasError } = this.state
     const dashPage = (props) => {
