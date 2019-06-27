@@ -44,7 +44,7 @@ class NavBar extends Component {
       <header>
         <h1 className='app-title'>
           <Link to='/'>
-            Spaced repetition
+            Jouzu
           </Link>
         </h1>
         {TokenService.hasAuthToken()
