@@ -7,7 +7,7 @@ header {
     top: 0;
 }
 .app-title{
-  margin: auto 30px;
+  margin: auto 0 auto 30px;
 }
 .app-title a{
   text-decoration: none;
