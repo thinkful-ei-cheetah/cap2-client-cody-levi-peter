@@ -26,8 +26,10 @@ class DashboardRoute extends Component {
           <h4 className='word'>
             {word.original}
           </h4>
-          <p>{`correct answer count: ${word.correct_count}`}</p>
-          <p>{`incorrect answer count: ${word.incorrect_count}`}</p>
+          <div className='count-container'>
+            <p>{`Correct answer count: ${word.correct_count}`}</p>
+            <p>{`Incorrect answer count: ${word.incorrect_count}`}</p>
+          </div>
         </li>
       )
     }) : false;
