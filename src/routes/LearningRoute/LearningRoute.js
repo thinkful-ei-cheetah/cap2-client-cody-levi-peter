@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Incorrect from './Incorrect';
 import Correct from './Correct';
+import { Spring } from 'react-spring/renderprops';
+
+import './Learn.css'
 
 class LearningRoute extends Component {
   componentDidMount() {
@@ -24,62 +27,87 @@ class LearningRoute extends Component {
     }
 
     let learning = <>
-      <div>
+      <div className="qHead">
         <h2>
-        Translate the word:
+          Translate:
         </h2>
-        <span>
+        <span className="word">
           {qWord}
         </span>
+      <div className="scoreCard">
+        {`score: ${score}`}
       </div>
-      <p>
-        {`Your total score is: ${score}`}
-      </p>
+      </div>
+    <Spring
+      from={{ opacity: 0, marginTop: -500 }}
+      to={{ opacity: 1, marginTop: 0 }}
+      >
+      {props => (
+        <div style={props}>
+        <div className="formBin">
+          <div>
+            <form
+              onSubmit={handleSubmit}
+              className="learnForm"
+              >
 
-      <div>
-        <form
-          onSubmit={handleSubmit}
-        >
-          <label for={'learn-guess-input'}>
-            What's the translation for this word?
-          <input
-              required
-              id="learn-guess-input"
-              type="text"
-              name="guess-input"
-              value={this.guess}
-              onChange={handleChange}
-            />
-          </label>
-          <button type="submit">
-            Submit your answer
-        </button>
-        </form>
-      </div>
-      <div>
-        <div>
-          You have answered this word correctly {rAmount} times.
+              {/* <label for={'learn-guess-input'}>
+                What's the translation for this word?
+                </label> */}
+
+              <input
+              className="tInput"
+                  required
+                  id="learn-guess-input"
+                  type="text"
+                  name="guess-input"
+                  value={this.guess}
+                  onChange={handleChange}
+                  placeholder="Translation?"
+                />
+              <button type="submit" className="tSubmit">
+                {/* Submit */}
+                &#62;
+            </button>
+            </form>
+          </div>
         </div>
-        <div>
-          You have answered this word incorrectly {wAmount} times.
+        <div className="wScore">
+          <div>
+            Answered correctly {rAmount} times.
+          </div>
+          <div>
+            Answered incorrectly {wAmount} times.
+          </div>
         </div>
-      </div>
+        </div>
+      )}
+    </Spring>
     </>
 
 
     if (this.props.response !== undefined) {
       learning = null;
-      test = (this.props.response.isCorrect === false) ?  <Incorrect totalScore={this.props.response.totalScore} qWord={qWord} answer={this.props.response.answer} guess={this.props.guess} next={this.props.next}
-      />: <Correct totalScore={this.props.response.totalScore} qWord={qWord} answer={this.props.response.answer} guess={this.props.guess} next={this.props.next}/>
+      test = (this.props.response.isCorrect === false) ? <Incorrect totalScore={this.props.response.totalScore} qWord={qWord} answer={this.props.response.answer} guess={this.props.guess} next={this.props.next}
+      /> : <Correct totalScore={this.props.response.totalScore} qWord={qWord} answer={this.props.response.answer} guess={this.props.guess} next={this.props.next} />
     }
-
 
 
 
     console.log(this.props)
     return (
-      <section>
-        {learning}
+      <section >
+        <Spring
+          from={{ opacity: 0, marginTop: -500 }}
+          to={{ opacity: 1, marginTop: 0 }}
+        >
+          {props => (
+            <div style={props}>
+              {learning}
+            </div>
+          )}
+        </Spring>
+
         {test}
       </section>
     );
