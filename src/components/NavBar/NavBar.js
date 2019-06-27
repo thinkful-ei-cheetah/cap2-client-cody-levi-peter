@@ -13,11 +13,12 @@ class NavBar extends Component {
 
   renderLogoutLink() {
     return (
-      <div>
-        <span>
+      <div className='dashboard-nav'>
+        <span className='User-name'>
+          <p>/</p>
           {this.context.user.name}
         </span>
-        <nav>
+        <nav className='LandingPage-nav '>
           <Link
             onClick={this.handleLogoutClick}
             to='/login'>
