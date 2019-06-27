@@ -14,12 +14,6 @@ import API from './API';
 
 export default class App extends Component {
   state = { 
-<<<<<<< HEAD
-    hasError: false,
-    wordList:[],
-    itemsToShow: 5,
-    expanded: false
-=======
     hasError: false ,
     guess: '',
   }
@@ -56,7 +50,6 @@ export default class App extends Component {
     this.setState({
       guess: e
     })
->>>>>>> 13d9b3eef4535a4f997001159e9f14b6c0fea4f5
   }
 
   setSession = () => {
@@ -76,9 +69,6 @@ export default class App extends Component {
         })
       })
   }
-<<<<<<< HEAD
- 
-=======
 
   getHead = () => {
     API.getLangHead()
@@ -96,7 +86,6 @@ export default class App extends Component {
       })
   }
 
->>>>>>> 13d9b3eef4535a4f997001159e9f14b6c0fea4f5
   static getDerivedStateFromError(error) {
     console.error(error)
     return { hasError: true }
@@ -118,10 +107,6 @@ export default class App extends Component {
             set={this.setSession}/>
         )
     }
-<<<<<<< HEAD
-
-    
-=======
     const learnPage = (props) => {
       return (
         <LearningRoute 
@@ -136,7 +121,6 @@ export default class App extends Component {
       )
     }
 
->>>>>>> 13d9b3eef4535a4f997001159e9f14b6c0fea4f5
     return (
       <div className='App'>
         <NavBar />
