@@ -47,3 +47,22 @@
       width: 80%;
       border: 2px solid var(--secondry);
     }
+    @media screen and (max-width: 500px) {
+      .login-wrapper{
+        padding: 0;
+      }
+      .login-section{
+        width:90%;
+        margin:55px 15px;
+      }
+}
+ @media screen and (max-width: 800px) {
+      .login-wrapper{
+        padding: 0;
+      }
+      .login-section{
+           width: 90%;
+          margin: 55px 15px;
+          padding: 10px;
+      }
+}

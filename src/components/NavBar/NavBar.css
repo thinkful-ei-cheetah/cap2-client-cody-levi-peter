@@ -50,3 +50,12 @@ nav a:hover{
   margin: 0 10px;
   font-weight: 300;
 }
+
+@media screen and (max-width: 750px) {
+  .LandingPage-nav{
+    right: 15px;
+  }
+  .LandingPage-nav a{
+    margin-left:10px
+  }
+}
