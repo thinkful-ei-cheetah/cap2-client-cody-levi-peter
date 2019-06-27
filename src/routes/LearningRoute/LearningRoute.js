@@ -71,6 +71,7 @@ class LearningRoute extends Component {
       learning = null;
       test = (this.props.response.isCorrect === false) ?  <Incorrect totalScore={this.props.response.totalScore} qWord={qWord} answer={this.props.response.answer} guess={this.props.guess} next={this.props.next}
       />: <Correct totalScore={this.props.response.totalScore} qWord={qWord} answer={this.props.response.answer} guess={this.props.guess} next={this.props.next}/>
+
     }
 
 

@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, { Component , useContext} from 'react'
+import { Route, Switch,  } from 'react-router-dom'
+import {RouterContext} from "../../CustomBrowserRouter"
 import NavBar from '../NavBar/NavBar'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 import PublicOnlyRoute from '../PublicOnlyRoute/PublicOnlyRoute'
@@ -9,8 +10,10 @@ import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import LearningRoute from '../../routes/LearningRoute/LearningRoute'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import APi from './API'
-import './App.css'
 import API from './API';
+
+import { useTransition, animated } from "react-spring";
+import './App.css'
 
 export default class App extends Component {
   state = { 
@@ -90,8 +93,18 @@ export default class App extends Component {
     console.error(error)
     return { hasError: true }
   }
-
+ 
   render() {
+
+    const {location}  = useContext(RouterContext);
+    const transitions = useTransition(location, location => location.pathname, {
+      from: { opacity: 0, transform: "translate(100%, 0)" },
+      enter: { opacity: 1, transform: "translate(0%, 0)" },
+      leave: { opacity: 0, transform: "translate(-50%, 0)" }
+    });
+
+
+
     const { hasError } = this.state
     const dashPage = (props) => {
       return(
@@ -122,6 +135,7 @@ export default class App extends Component {
       )
     }
 
+    
     return (
       <div className='App'>
         <NavBar />
@@ -129,29 +143,36 @@ export default class App extends Component {
           {hasError && (
             <p>There was an error! Oh no!</p>
           )}
-          <Switch>
-            <PrivateRoute
-              exact
-              path={'/'}
-              component={dashPage}
-            />
-            <PrivateRoute
-              exact
-              path={'/learn'}
-              component={learnPage}
-            />
-            <PublicOnlyRoute
-              path={'/register'}
-              component={RegistrationRoute}
-            />
-            <PublicOnlyRoute
-              path={'/login'}
-              component={loginPage}
-            />
-            <Route
-              component={NotFoundRoute}
-            />
-          </Switch>
+          
+            {transitions.map(({ item, props, key }) => (
+              <animated.div key={key} style={props}>
+                <Switch location={item}>
+                    <PrivateRoute
+                      exact
+                      path={'/'}
+                      component={dashPage}
+                    />
+                    <PrivateRoute
+                      exact
+                      path={'/learn'}
+                      component={learnPage}
+                    />
+                    <PublicOnlyRoute
+                    exact
+                      path={'/register'}
+                      component={RegistrationRoute}
+                    />
+                    <PublicOnlyRoute
+                    exact
+                      path={'/login'}
+                      component={loginPage}
+                    />
+                    <Route
+                      component={NotFoundRoute}
+                    />
+                  </Switch>
+              </animated.div>
+            ))}
         </main>
       </div>
     );

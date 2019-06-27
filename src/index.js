@@ -7,10 +7,11 @@ import App from './components/App/App'
 import './setup-icons'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
+import CustomBrowserRouter from "./CustomBrowserRouter";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <UserProvider>
+    <BrowserRouter>
+  <UserProvider>
       <App />
     </UserProvider>
   </BrowserRouter>,
