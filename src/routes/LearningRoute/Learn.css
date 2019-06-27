@@ -54,7 +54,7 @@
     /* align-items:center; */
 }
 
-input[type=text] {
+/* input[type=text] {
     background-color: #fefefe;
     color: gray;
     padding-right:10px;
@@ -64,6 +64,17 @@ input[type=text] {
     height:8vh;
     border:  2px solid lightgreen
 
+  } */
+
+  .tInput{
+    background-color: #fefefe;
+    color: gray;
+    padding-right:10px;
+    font-size: 30px;
+    font-size: 3.5vw;
+    width: 80vw;
+    height:8vh;
+    border:  2px solid lightgreen
   }
 
 .tSubmit{
