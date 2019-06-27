@@ -66,3 +66,12 @@
 .word-col{
   height: 190vh;
 }
+
+@media screen and (max-width: 750px) {
+  .dashboard-header{
+    padding: 0;
+  }
+  .wordList-section{
+    margin:0;
+  }
+}
