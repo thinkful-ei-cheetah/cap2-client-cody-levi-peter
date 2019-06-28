@@ -16,7 +16,7 @@ class NavBar extends Component {
       <div className='dashboard-nav'>
         <span className='User-name'>
           <p>/</p>
-          {this.context.user.name}
+          <span className='nav-username' style={{display:'block', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}}>{this.context.user.name}</span>
         </span>
         <nav className='LandingPage-nav '>
           <Link
