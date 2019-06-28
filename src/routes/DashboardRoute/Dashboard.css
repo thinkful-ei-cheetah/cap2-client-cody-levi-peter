@@ -32,6 +32,7 @@
   border-radius:20px;
   padding: 8px 44px;
   margin-top: 3vh;
+  transition:color .2s ease-out, background 1s ease-in;
 }
 .title-wrapper{
   display: flex;
@@ -40,8 +41,7 @@
   padding-right:25px;
 }
 .dashboard-header a:hover{
-  text-decoration: underline;
-  color:var(--seconday);
+  color:#f1f1f1;
 }
 .wordList-section{
  margin-left: 3vw;
