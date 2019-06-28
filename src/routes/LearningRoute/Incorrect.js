@@ -15,7 +15,7 @@ export default class Incorrect extends Component {
                             Your total score is: {this.props.totalScore}
                         </p>
                         <p className="DisplayFeedback">
-                            The correct translation for <b><span style={{color:'#007E33'}}>{this.props.qWord}</span></b> was <b><span style={{color:'#007E33'}}>{this.props.answer}</span></b>, you chose <b><span style={{color:'#ff4444'}}>{this.props.guess}</span></b>.
+                            The correct translation for <b><span style={{color:'#007E33'}}>{this.props.qWord}</span></b> was <b><span style={{color:'#007E33'}}>{this.props.answer}</span></b>, you chose <b><span className='incorrect-input' style={{color:'#ff4444', display:'inline-block', verticalAlign: 'bottom', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap'}}>{this.props.guess}</span></b>.
                         </p>
                 </div>
                <div>
