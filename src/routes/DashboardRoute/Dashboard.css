@@ -67,7 +67,7 @@
 
 }
 
-.wordList::-webkit-scrollbar { display:hidden; }
+.wordList::-webkit-scrollbar { display:none; }
 .wordList { 
   -ms-overflow-style: none; 
   overflow: -moz-scrollbars-none;
