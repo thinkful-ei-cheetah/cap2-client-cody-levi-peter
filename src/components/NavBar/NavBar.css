@@ -56,4 +56,31 @@ nav a:hover{
   .LandingPage-nav a{
     margin-left:10px
   }
+  .nav-username {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .nav-username {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .nav-username {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav-username {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .nav-username {
+    width: 80px;
+  }
 }
