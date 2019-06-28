@@ -15,7 +15,7 @@ export default class Incorrect extends Component {
                             Your total score is: {this.props.totalScore}
                         </p>
                         <p className="DisplayFeedback">
-                            {`The correct translation for ${this.props.qWord} was ${this.props.answer}, you chose ${this.props.guess}.`}
+                            {`The correct translation for ${<span style={{color:'#007E33'}}>this.props.qWord</span>} was ${<span style={{color:'#007E33'}}>this.props.answer</span>}, you chose ${<span style={{color:'#ff4444'}}>this.props.guess</span>}.`}
                         </p>
                 </div>
                <div>
