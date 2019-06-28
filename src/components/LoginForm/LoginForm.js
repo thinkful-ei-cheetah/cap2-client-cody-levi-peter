@@ -3,7 +3,11 @@ import { Input, Label } from '../Form/Form'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../contexts/UserContext'
 import Button from '../Button/Button'
+
+import { Spring } from 'react-spring/renderprops'
 import './LoginForm.css'
+
+
 class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => { }
@@ -40,44 +44,61 @@ class LoginForm extends Component {
     this.firstInput.current.focus()
   }
 
+  
+
   render() {
-    const { error } = this.state
-    return (
-      <form
-        className='LoginForm'
-        onSubmit={this.handleSubmit}
+  const { error } = this.state
+  return (
+
+
+
+      <Spring
+      from={{ opacity: 0,  marginRight:-500 }}
+      to={{ opacity: 1, marginRight:0  }}
+      // leave={{ opacity: 0, transform: "translate(-50%, 0)"}}
       >
-        <div role='alert'>
-          {error && <p>{error}</p>}
-        </div>
-        <div>
-          <Label htmlFor='login-username-input'>
-            Username
-          </Label>
-          <Input
-            ref={this.firstInput}
-            id='login-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor='login-password-input'>
-            Password
-          </Label>
-          <Input
-            id='login-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div>
-        <Button type='submit' className='Login-button'>
-          Login
-        </Button>
-      </form>
+        { props => (
+          <div style={props}>
+            <form
+              className='LoginForm'
+              onSubmit={this.handleSubmit}
+            >
+              <div role='alert'>
+                {error && <p>{error}</p>}
+              </div>
+              <div>
+                <Label htmlFor='login-username-input'>
+                  Username
+              </Label>
+                <Input
+                  ref={this.firstInput}
+                  id='login-username-input'
+                  name='username'
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor='login-password-input'>
+                  Password
+              </Label>
+                <Input
+                  id='login-password-input'
+                  name='password'
+                  type='password'
+                  required
+                />
+              </div>
+              <Button type='submit' className='Login-button'>
+                Login
+            </Button>
+            </form>
+    
+          </div>
+        )}
+      </Spring>
+
     )
-  }
+}
 }
 
 export default LoginForm

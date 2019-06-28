@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
 
+import { Spring } from 'react-spring/renderprops'
+
 class LoginRoute extends Component {
   static defaultProps = {
     location: {},
@@ -20,7 +22,23 @@ class LoginRoute extends Component {
     return (
       <section className='login-wrapper'>
         <section className='login-section' >
-          <h2>Login</h2>
+
+
+
+          <Spring
+            from={{ opacity: 0, }}
+            to={{ opacity: 1, }}
+            config={{duration:700}}
+          >
+            {props => (
+              <div style={props}>
+                <h2>Login</h2>
+              </div>
+            )}
+          </Spring>
+          {/* <h2>Login</h2> */}
+
+
           <LoginForm
             onLoginSuccess={this.handleLoginSuccess}
           />
@@ -31,3 +49,5 @@ class LoginRoute extends Component {
 }
 
 export default LoginRoute
+
+
