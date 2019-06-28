@@ -18,7 +18,7 @@ class RegistrationRoute extends Component {
       <section className='registrationForm-wrapper'>
         <section className='registration-section'>
           <p>
-            Practice learning a language with the spaced reptition revision technique.
+            Practice a language with spaced reptition.
         </p>
           <h2>Sign up</h2>
           <RegistrationForm
