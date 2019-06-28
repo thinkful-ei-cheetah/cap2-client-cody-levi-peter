@@ -26,9 +26,12 @@ class LoginRoute extends Component {
 
 
           <Spring
-            from={{ opacity: 0, }}
-            to={{ opacity: 1, }}
-            config={{duration:700}}
+            // from={{ opacity: 0, }}
+            // to={{ opacity: 1, }}
+            from={{ opacity: 0, transform: "translate(-100%, 0)" }}
+            to={{ opacity: 1, transform: "translate(0%, 0)" }}
+
+            // config={{duration:700}}
           >
             {props => (
               <div style={props}>
