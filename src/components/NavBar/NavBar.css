@@ -12,10 +12,10 @@ header {
 .app-title a{
   text-decoration: none;
   color: var(--primary);
+  transition:color .2s ease-out, background 1s ease-in;
 }
 .app-title a:hover{
-  color: var(--Green);
-  text-decoration: underline;
+  color:#f1f1f1;
 }
 nav {
     position: fixed;
@@ -28,10 +28,10 @@ nav a{
     text-decoration: none;
     color: var(--primary);
     font-weight: 800;
+    transition:color .2s ease-out, background 1s ease-in;
 }
 nav a:hover{
-  color: var(--Green);
-  text-decoration: underline;
+  color:#f1f1f1;
 }
 /*  dashboard nav  */
 .dashboard-nav{
