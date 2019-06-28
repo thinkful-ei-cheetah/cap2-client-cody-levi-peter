@@ -130,3 +130,19 @@
      font-size: 30px;
     font-size: 3.5vw;
  }
+
+.incorrect-input{
+   width: 33vw;
+}
+
+@media screen and (max-width: 600px) {
+    .incorrect-input{
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .incorrect-input{
+        width: 66vw;
+    }
+}
