@@ -18,7 +18,7 @@ export default class Correct extends Component {
                     </div>
                     <div className="DisplayFeedback">
                         <p>
-                            {`The correct translation for ${this.props.qWord} was ${this.props.guess}!`}
+                            {`The correct translation for ${<span style={{color:'#007E33'}}>this.props.qWord</span>} was ${<span style={{color:'#007E33'}}>this.props.guess</span>}!`}
                         </p>
                     </div>
                 </div>
