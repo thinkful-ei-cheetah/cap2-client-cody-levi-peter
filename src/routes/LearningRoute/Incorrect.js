@@ -9,13 +9,13 @@ export default class Incorrect extends Component {
             <div className="incorrect">
                 <div>
                     <h2>
-                        {`Incorrect!`}
+                        <span style={{color:'#ff4444'}}>Incorrect!</span>
                     </h2>
                         <p className="DisplayScore">
                             Your total score is: {this.props.totalScore}
                         </p>
                         <p className="DisplayFeedback">
-                            {`The correct translation for ${<span style={{color:'#007E33'}}>this.props.qWord</span>} was ${<span style={{color:'#007E33'}}>this.props.answer</span>}, you chose ${<span style={{color:'#ff4444'}}>this.props.guess</span>}.`}
+                            The correct translation for <b><span style={{color:'#007E33'}}>{this.props.qWord}</span></b> was <b><span style={{color:'#007E33'}}>{this.props.answer}</span></b>, you chose <b><span style={{color:'#ff4444'}}>{this.props.guess}</span></b>.
                         </p>
                 </div>
                <div>
