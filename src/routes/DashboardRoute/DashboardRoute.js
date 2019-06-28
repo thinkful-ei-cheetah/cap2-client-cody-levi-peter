@@ -61,7 +61,7 @@ class DashboardRoute extends Component {
 
         <div className='title-wrapper'>
           <a href="/learn">
-            Start practicing
+            Practice
           </a>
         </div>
       </div>
