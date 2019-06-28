@@ -27,8 +27,8 @@ class DashboardRoute extends Component {
             {word.original}
           </h4>
           <div className='count-container'>
-            <p>{`Correct answer count: ${word.correct_count}`}</p>
-            <p>{`Incorrect answer count: ${word.incorrect_count}`}</p>
+            <p>{`Correct count: ${word.correct_count}`}</p>
+            <p>{`Incorrect count: ${word.incorrect_count}`}</p>
           </div>
         </li>
       )
@@ -38,21 +38,27 @@ class DashboardRoute extends Component {
     return (
       <section className='dashboard-section'>
         <div className='dashboard-header'>
-          <h2 className='Language-title'>
-            Learning {this.language()}
-          </h2>
+  
+            
+              <h2 className='Language-title'>
+                {this.language()}
+              </h2>
+
+     
           <div className='title-wrapper'>
-            <p>{`Total correct answers: ${this.score()}`}</p>
             <a href="/learn">
               Start practicing
             </a>
           </div>
         </div>
         <section className='wordList-section'>
-          <h3>
-            Words to practice
-          </h3>
           <div className='word-col'>
+          <div className="lHeader">
+            <h3>
+              scoreCards
+            </h3>
+            <div className="tScore">{`Total score: ${this.score()}`}</div>
+          </div>
             <ul className='wordList' onClick={this.props.showMore}>
               {this.words()}
             </ul>
