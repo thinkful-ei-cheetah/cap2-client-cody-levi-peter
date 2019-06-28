@@ -1,4 +1,4 @@
-  
+
    .login-section{
     width:40%;
     height: 500px;
@@ -6,15 +6,14 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: white;
     align-content: center;
-    border-radius: 8px;
-    border: 2px solid var(--secondry);
+    justify-content: space-evenly;
+   
+    
    }
    .login-section h2 {
      font-size: 35px;
-    margin-top: 35px;
-    margin-bottom: 0;
+     margin:0;
 
    }
    
@@ -32,12 +31,12 @@
     }
     
    .LoginForm{
-     height: 300px;
-     width: 100%;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-around; 
-     align-items: center;
+     width: 452px;
+     max-width: 100%;
+     margin-left: auto;
+     margin-right: auto;
+     padding-left: 16px;
+     padding-right: 16px
     } 
 
    .Login-button{
@@ -45,25 +44,38 @@
       color: white;
       padding: 10px 20px;
       margin: 8px 0;
-      font-size: 24px;
+      font-size: 16px;
       border-radius: 10px;
+      height: 42px;
       border: none;
       cursor: pointer;
-      width: 55%
+      width: 100%
     }
   .Login-button:hover {
-  opacity: 0.9;
-  color:var(--primary);
+    opacity: 0.9;
+    color:var(--primary);
     }
 
    #login-username-input, #login-password-input {
-      width: 100%;
-      padding: 12px 20px;
-      font-size: 16px;
-      margin: 8px 0;
-      display: inline-block;
-      box-sizing: border-box;
-      border-radius: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    font-family: 'MaisonNeue','Helvetica',sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 42px;
+    width: 544px;
+    min-width: 210px;
+    max-width: 100%;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 15px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 36px;
     }
 
     @media screen and (max-width: 500px) {
